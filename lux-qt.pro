@@ -138,12 +138,12 @@ LIBS += $$PWD/src/leveldb/libleveldb.a $$PWD/src/leveldb/libmemenv.a
 SOURCES += src/txdb-leveldb.cpp \
 	src/bloom.cpp \
     src/hash.cpp \
-    src/obj/phi1612/skein.c \
-    src/obj/phi1612/cubehash.c \
-    src/obj/phi1612/gost.c \
-    src/obj/phi1612/fugue.c \
-    src/obj/phi1612/jh.c \
-    src/obj/phi1612/echo.c \
+    src/phi1612/skein.c \
+    src/phi1612/cubehash.c \
+    src/phi1612/gost.c \
+    src/phi1612/fugue.c \
+    src/phi1612/jh.c \
+    src/phi1612/echo.c \
     src/qt/rpcexecutor.cpp \
     src/qt/forms/sidetoolbar.cpp
 
@@ -316,13 +316,13 @@ HEADERS += src/qt/bitcoingui.h \
     src/qt/qvalidatedtextedit.h \
     src/bloom.h \
     src/hashblock.h \
-    src/obj/phi1612/sph_skein.h \
-    src/obj/phi1612/sph_types.h \
-    src/obj/phi1612/sph_cubehash.h \
-    src/obj/phi1612/sph_fugue.h \
-    src/obj/phi1612/sph_jh.h \
-    src/obj/phi1612/sph_gost.h \
-    src/obj/phi1612/sph_echo.h \
+    src/phi1612/sph_skein.h \
+    src/phi1612/sph_types.h \
+    src/phi1612/sph_cubehash.h \
+    src/phi1612/sph_fugue.h \
+    src/phi1612/sph_jh.h \
+    src/phi1612/sph_gost.h \
+    src/phi1612/sph_echo.h \
     src/txdb-leveldb.h \
     src/qt/txviewdelegate.h \
     src/qt/rpcexecutor.h \
