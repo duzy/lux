@@ -3,12 +3,12 @@
 
 #include "uint256.h"
 // Initilised PHI
-#include "obj/phi1612/sph_skein.h"
-#include "obj/phi1612/sph_jh.h"
-#include "obj/phi1612/sph_cubehash.h"
-#include "obj/phi1612/sph_fugue.h"
-#include "obj/phi1612/sph_gost.h"
-#include "obj/phi1612/sph_echo.h"
+#include "phi1612/sph_skein.h"
+#include "phi1612/sph_jh.h"
+#include "phi1612/sph_cubehash.h"
+#include "phi1612/sph_fugue.h"
+#include "phi1612/sph_gost.h"
+#include "phi1612/sph_echo.h"
 
 
 #ifndef QT_NO_DEBUG
