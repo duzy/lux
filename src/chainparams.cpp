@@ -98,12 +98,12 @@ public:
          * The characters are rarely used upper ASCII, not valid as UTF-8, and produce
          * a large 4-byte int at any alignment.
          */
-        pchMessageStart[0] = 0x64;
-        pchMessageStart[1] = 0x1a;
-        pchMessageStart[2] = 0x84;
-        pchMessageStart[3] = 0x3l;
+        pchMessageStart[0] = /*0x64*/ 0x6a;
+        pchMessageStart[1] = /*0x1a*/ 0x3b;
+        pchMessageStart[2] = /*0x84*/ 0x88;
+        pchMessageStart[3] = /*0x3l*/ 0x3c;
         vAlertPubKey = ParseHex("042d13c016ed91528241bcff222989769417eb10cdb679228c91e26e26900eb9fd053cd9f16a9a2894ad5ebbd551be1a4bd23bd55023679be17f0bd3a16e6fbeba");
-        nDefaultPort = 28666;
+        nDefaultPort = /*28666*/ 26868;
         bnProofOfWorkLimit = ~uint256(0) >> 20; // LUX starting difficulty is 1 / 2^12
         nSubsidyHalvingInterval = 210000;
         nMaxReorganizationDepth = 100;
@@ -142,9 +142,11 @@ public:
         assert(genesis.hashMerkleRoot == uint256("0xe08ae0cfc35a1d70e6764f347fdc54355206adeb382446dd54c32cd0201000d3"));
 
         vSeeds.push_back(CDNSSeedData("sd1", "45.77.44.147"));
-        vSeeds.push_back(CDNSSeedData("sd2", "207.246.96.37"));        // Single node address
+#if 0
+        vSeeds.push_back(CDNSSeedData("sd2", "207.246.96.37")); // Single node address
         vSeeds.push_back(CDNSSeedData("sd3", "45.32.245.217")); // SIN - AU
         vSeeds.push_back(CDNSSeedData("sd4", "45.76.118.90")); // US - AU
+#endif
 
         base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1,48); // LUX Start letter L
         base58Prefixes[SCRIPT_ADDRESS] = std::vector<unsigned char>(1,48);
