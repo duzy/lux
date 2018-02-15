@@ -962,7 +962,7 @@ void Stake::StakingThread(CWallet *wallet)
             if (nCanStake) {
                 while ((wallet->IsLocked() || nReserveBalance >= wallet->GetBalance())) {
                     nStakeInterval = 0;
-                    MilliSleep(5000);
+                    MilliSleep(3000);
                     continue;
                 }
                 LOCK(cs_main);
@@ -977,9 +977,9 @@ void Stake::StakingThread(CWallet *wallet)
             DEBUG_DUMP_STAKING_THREAD();
 #endif
             if (nCanStake && GenBlockStake(wallet, reserve, extra)) {
-                MilliSleep(1000);
+                MilliSleep(1500);
             } else {
-                MilliSleep(5000);
+                MilliSleep(1000);
             }
         }
         boost::this_thread::interruption_point();
