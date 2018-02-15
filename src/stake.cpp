@@ -368,10 +368,15 @@ bool Stake::CheckHash(const CBlockIndex* pindexPrev, unsigned int nBits, const C
     unsigned int nTimeBlockFrom = blockFrom.GetBlockTime();
 
     if (nTimeTx < txPrev.nTime)  // Transaction timestamp violation
-        return error("%s: nTime violation", __func__);
+        return error("%s: nTime violation (nTime=%d, nTimeTx=%d)", __func__, txPrev.nTime, nTimeTx);
 
+#if 0
     if (nTimeBlockFrom + nStakeMinAge > nTimeTx) // Min age requirement
         return error("%s: min age violation (nBlockTime=%d, nTimeTx=%d)", __func__, nTimeBlockFrom, nTimeTx);
+#else
+    if (nTimeTx - nTimeBlockFrom > nStakeMinAge) // Min age requirement
+        return error("%s: min age violation (nBlockTime=%d, nTimeTx=%d)", __func__, nTimeBlockFrom, nTimeTx);
+#endif
 
     // Base target
     uint256 bnTarget;
@@ -457,7 +462,7 @@ bool Stake::CheckProof(CBlockIndex* const pindexPrev, const CBlock &block, uint2
 
     unsigned int nTime = block.nTime;
 #   if 0
-    if (!this->CheckHash(pindexPrev, block.nBits, prevBlock, txPrev, txin.prevout, nTime, hashProofOfStake))
+    if (!CheckHash(pindexPrev, block.nBits, prevBlock, txPrev, txin.prevout, nTime, hashProofOfStake))
         // may occur during initial download or if behind on block chain sync
         return error("%s: invalid coinstake %s, hashProof=%s", __func__, 
                      tx.GetHash().ToString(), hashProofOfStake.ToString());
