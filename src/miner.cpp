@@ -375,8 +375,6 @@ CBlockTemplate* CreateNewBlock(const CScript& scriptPubKeyIn, CWallet* pwallet, 
         }
         pblocktemplate->vTxSigOps[0] = GetLegacySigOpCount(pblock->vtx[0]);
 
-        
-
         CValidationState state;
         if (!TestBlockValidity(state, *pblock, pindexPrev, false, false)) {
             if (!fProofOfStake) LogPrintf("%s: TestBlockValidity failed (%s)\n", __func__, ct);
@@ -446,8 +444,9 @@ bool ProcessBlockFound(CBlock* pblock, CWallet& wallet, CReserveKey& reservekey)
 
     // Process this block the same as if we had received it from another node
     CValidationState state;
-    if (!ProcessNewBlock(state, NULL, pblock))
+    if (!ProcessNewBlock(state, NULL, pblock)) {
         return error("LUXMiner : ProcessNewBlock, block not accepted");
+    }
 
     return true;
 }

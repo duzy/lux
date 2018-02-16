@@ -184,6 +184,12 @@ bool CBlock::CheckBlockSignature() const
     if (IsProofOfWork())
         return vchBlockSig.empty();
 
+    if (IsProofOfStake()) {
+        // if we are trying to sign
+        //    a complete proof-of-stake block
+        return vtx[0].vout[0].IsEmpty();
+    }
+
     std::vector<valtype> vSolutions;
     txnouttype whichType;
 
