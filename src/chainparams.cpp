@@ -267,6 +267,7 @@ public:
         nEnforceBlockUpgradeMajority = 750;
         nRejectBlockOutdatedMajority = 950;
         nToCheckBlockUpgradeMajority = 1000;
+        nMaturity = 1;
         nMinerThreads = 1;
         nTargetTimespan = 24 * 60 * 60; // Lux: 1 day
         nTargetSpacing = 1 * 60;        // Lux: 1 minutes
