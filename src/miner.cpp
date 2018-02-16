@@ -130,7 +130,6 @@ CBlockTemplate* CreateNewBlock(const CScript& scriptPubKeyIn, CWallet* pwallet, 
     // Add our coinbase tx as first transaction
     pblock->vtx.push_back(txNew);
     if (fProofOfStake && !stake->CreateBlockStake(pwallet, pblock)) {
-        LogPrintf("%s: no stake found\n", __func__);
         return nullptr;
     }
 
