@@ -946,7 +946,7 @@ bool Stake::GenBlockStake(CWallet *wallet, const CReserveKey &key, unsigned int 
     
     IncrementExtraNonce(block, tip, extra);
 
-    if (block->SignBlock(*wallet)) {
+    if (!block->SignBlock(*wallet)) {
         return error("%s: Cant sign new block.", __func__);
     }
 
