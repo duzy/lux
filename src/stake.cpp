@@ -368,11 +368,12 @@ bool Stake::CheckHash(const CBlockIndex* pindexPrev, unsigned int nBits, const C
 {
     unsigned int nTimeBlockFrom = blockFrom.GetBlockTime();
 
-    if (nTimeTx < txPrev.nTime)  // Transaction timestamp violation
-        return error("%s: nTime violation (nTime=%d, nTimeTx=%d)", __func__, txPrev.nTime, nTimeTx);
+    if (nTimeTx < txPrev.nTime) {  // Transaction timestamp violation
+        return false; //error("%s: nTime violation (nTime=%d, nTimeTx=%d)", __func__, txPrev.nTime, nTimeTx);
+    }
 
     if (GetStakeAge(nTimeBlockFrom) > nTimeTx) // Min age requirement
-        return error("%s: min age violation (nBlockTime=%d, nTimeTx=%d)", __func__, nTimeBlockFrom, nTimeTx);
+        return false; //error("%s: min age violation (nBlockTime=%d, nTimeTx=%d)", __func__, nTimeBlockFrom, nTimeTx);
 
     // Base target
     uint256 bnTarget;
