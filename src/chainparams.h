@@ -93,6 +93,7 @@ public:
     std::string ObfuscationPoolDummyAddress() const { return strObfuscationPoolDummyAddress; }
     int64_t StartMasternodePayments() const { return nStartMasternodePayments; }
     int64_t StakingRoundPeriod() const { return nStakingRoundPeriod; }
+    int64_t StakingInterval() const { return nStakingInterval; }
     int64_t StakingMinAge() const { return nStakingMinAge; }
     CBaseChainParams::Network NetworkID() const { return networkID; }
 
@@ -137,6 +138,7 @@ protected:
     std::string strObfuscationPoolDummyAddress;
     int64_t nStartMasternodePayments;
     int64_t nStakingRoundPeriod;
+    int64_t nStakingInterval;
     int64_t nStakingMinAge;
 };
 

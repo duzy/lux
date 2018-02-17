@@ -175,6 +175,7 @@ public:
         nStartMasternodePayments = 1507656633; // 10/10/2017
         
         nStakingRoundPeriod = 300; // 5 minutes a round
+        nStakingInterval = 22;
         nStakingMinAge = 36 * 60 * 60;
     }
 
@@ -250,6 +251,7 @@ public:
         nStartMasternodePayments = 1420837558; //Fri, 09 Jan 2015 21:05:58 GMT
 
         nStakingRoundPeriod = 5; // 5 seconds a round
+        nStakingInterval = 30; // 30 seconds
         nStakingMinAge = 360; // 6 minutes
     }
     const Checkpoints::CCheckpointData& Checkpoints() const
