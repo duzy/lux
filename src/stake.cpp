@@ -826,7 +826,7 @@ bool Stake::CreateCoinStake(CWallet *wallet, const CKeyStore& keystore, unsigned
             continue; // try signing again
         } else {
             if (fDebug) {
-                LogPrintf("%s: fee for coinstake %s (%s)\n", __func__, FormatMoney(nMinFee), FormatMoney(nFeeNeeded));
+                LogPrint("debug", "%s: fee for coinstake %s (%s)\n", __func__, FormatMoney(nMinFee), FormatMoney(nFeeNeeded));
             }
             break;
         }
@@ -874,7 +874,7 @@ bool Stake::CreateCoinStake(CWallet *wallet, const CKeyStore& keystore, unsigned
         ExtractDestination(payee, address1);
         CBitcoinAddress address2(address1);
 
-        LogPrintf("%s: Masternode payment to %s\n", __func__, address2.ToString());
+        LogPrint("debug", "%s: Masternode payment to %s\n", __func__, address2.ToString());
     }
 
     int64_t blockValue = nCredit;
