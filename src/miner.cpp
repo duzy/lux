@@ -376,9 +376,9 @@ CBlockTemplate* CreateNewBlock(const CScript& scriptPubKeyIn, CWallet* pwallet, 
             auto nReward = GetProofOfWorkReward(nFees, pindexPrev->nHeight+1);
             if (SelectMasternodePayee(payeeScript)) {                
                 tx.vout.resize(2);
-                tx.vout[0].nValue = (nReward / 5 / CENT) * CENT;
-                tx.vout[1].nValue = nReward - tx.vout[0].nValue;
                 tx.vout[1].scriptPubKey = payeeScript;
+                tx.vout[1].nValue = (nReward / 5 / CENT) * CENT;
+                tx.vout[0].nValue = nReward - tx.vout[1].nValue;
 
                 CTxDestination txDest;
                 ExtractDestination(payeeScript, txDest);
