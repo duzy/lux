@@ -427,9 +427,9 @@ int GetMasternodeByVin(CTxIn& vin)
     int i = 0;
     LOCK(cs_masternodes);
     BOOST_FOREACH(CMasterNode& mn, vecMasternodes) {
-                    if (mn.vin == vin) return i;
-                    i++;
-                }
+        if (mn.vin == vin) return i;
+        i++;
+    }
 
     return -1;
 }
