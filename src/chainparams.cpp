@@ -174,9 +174,9 @@ public:
         strDarksendPoolDummyAddress = "LgcjpYxWa5EB9KCYaRtpPgG8kgiWRvJY38";
         nStartMasternodePayments = 1507656633; // 10/10/2017
 
-        nStakingRoundPeriod = 150; // 2.5 minutes a round
+        nStakingRoundPeriod = 150;
         nStakingInterval = 22;
-        nStakingMinAge = 36 * 60 * 60;
+        nStakingMinAge = 30 * 60 * 60;
     }
 
     const Checkpoints::CCheckpointData& Checkpoints() const
@@ -250,9 +250,15 @@ public:
         strDarksendPoolDummyAddress = "LPGq7DZbqZ8Vb3tfLH8Z8VHqeV4fsK68oX";
         nStartMasternodePayments = 1420837558; //Fri, 09 Jan 2015 21:05:58 GMT
 
-        nStakingRoundPeriod = 5; // 5 seconds a round
-        nStakingInterval = 22; // 22 seconds
-        nStakingMinAge = 360; // 6 minutes
+#if true
+        nStakingRoundPeriod = 5;
+        nStakingInterval = 15;
+        nStakingMinAge = 30;
+#else
+        nStakingRoundPeriod = 150;
+        nStakingInterval = 22;
+        nStakingMinAge = 30 * 60 * 60;
+#endif
     }
     const Checkpoints::CCheckpointData& Checkpoints() const
     {
