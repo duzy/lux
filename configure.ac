@@ -759,6 +759,24 @@ if test x$use_tests = xyes; then
 fi
 
 if test x$use_boost = xyes; then
+if test "x$BOOST_SYSTEM_LIB" = "x"; then
+    AC_MSG_ERROR(boost_system library was not detected)
+fi
+if test "x$BOOST_FILESYSTEM_LIB" = "x"; then
+    AC_MSG_ERROR(boost_filesystem library was not detected)
+fi
+if test "x$BOOST_PROGRAM_OPTIONS_LIB" = "x"; then
+    AC_MSG_ERROR(boost_program_options library was not detected)
+fi
+if test "x$BOOST_THREAD_LIB" = "x"; then
+    AC_MSG_ERROR(boost_thread library was not detected)
+fi
+if test "x$BOOST_CHRONO_LIB" = "x"; then
+    AC_MSG_ERROR(boost_chrono library was not detected)
+fi
+if test "x$BOOST_RANDOM_LIB" = "x"; then
+    AC_MSG_ERROR(boost_random library was not detected)
+fi
 
 BOOST_LIBS="$BOOST_LDFLAGS $BOOST_SYSTEM_LIB $BOOST_FILESYSTEM_LIB $BOOST_PROGRAM_OPTIONS_LIB $BOOST_THREAD_LIB $BOOST_CHRONO_LIB $BOOST_RANDOM_LIB"
 
