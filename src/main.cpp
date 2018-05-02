@@ -3468,9 +3468,11 @@ bool CheckBlock(const CBlock& block, CValidationState& state, bool fCheckPOW, bo
 
     // Check that the header is valid (particularly PoW). This is mostly
     // redundant with the call in AcceptBlockHeader.
-    if (fCheckPOW && !CheckBlockHeader(block, state, fCheckPOW && block.IsProofOfWork()))
-        return state.DoS(100, error("%s: invalid (%s) block header", __func__, s),
+    if (fCheckPOW && !CheckBlockHeader(block, state, fCheckPOW && block.IsProofOfWork())) {
+        auto const height = chainActive.Tip() ? chainActive.Tip()->nHeight : -1;
+        return state.DoS(100, error("%s: invalid (%s) block header (Height=%d)", __func__, s, height),
                          REJECT_INVALID, "bad-header", true);
+    }
 
     // 3 minute future drift for PoS
     auto const nBlockTimeLimit = GetAdjustedTime() + (block.IsProofOfStake() ? 180 : 7200);
